@@ -11,4 +11,4 @@
     (vowel? (string-ref wd 0)))
 
 (define (vowel? letter)
-    (member letter '(#\a #\e #\i #\o #\u)))
+    (member letter '(#\a #\e #\i #\o #\u #\A #\E #\I #\O #\U)))
