@@ -1,4 +1,6 @@
-
+#lang simply-scheme
+ (require (for-syntax racket/base)
+		  compatibility/defmacro)
 ;;; Demonstration program for substitution-model evaluation
 ;;;   complete with normal-order and applicative-order versions.
 ;;; For use with Section 1.1 of SICP.
@@ -107,9 +109,11 @@
 	      (let ((new-form (subapplic (list (car form))
 					 (cdr form)
 					 (word spaces "   ") )))
-		(if (and (memq (car form) def-names)
-			 (not (all-numbers? (cdr form))) )
-		    (begin (newline) (display spaces) (display new-form)) )
+		(cond ((and (memq (car form) def-names)
+			   (not (all-numbers? (cdr form))) )
+		       (newline)
+		       (display spaces)
+		       (display new-form)))
 		(cond ((memq (car form) def-names)
 		       (display " ----> ")
 		       (applic1 (subst (eval (car form)) (cdr new-form))
