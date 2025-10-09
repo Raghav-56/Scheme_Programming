@@ -26,7 +26,7 @@ eg. Scheme
 
 eg. Haskell
 
-## Difference
+## Difference in outcome
 
 If correct functional programs are used, both always give the same result. However, they may differ in efficiency and termination.
 
